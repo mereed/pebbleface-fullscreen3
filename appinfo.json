@@ -1,0 +1,371 @@
+{
+    "appKeys": {
+        "bluetoothvibe": 2,
+        "datesep": 5,
+        "hour_col": 6,
+        "hourlyvibe": 3,
+        "invert": 1,
+        "min_col": 7
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "chops",
+    "longName": "fullscreen3",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/jul.png",
+                "name": "IMAGE_DAY_NAME_WED",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/jun.png",
+                "name": "IMAGE_DAY_NAME_TUE",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/jan.png",
+                "name": "IMAGE_DAY_NAME_THU",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/may.png",
+                "name": "IMAGE_DAY_NAME_MON",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/apr.png",
+                "name": "IMAGE_DAY_NAME_SUN",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/mar.png",
+                "name": "IMAGE_DAY_NAME_SAT",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/feb.png",
+                "name": "IMAGE_DAY_NAME_FRI",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny1.png",
+                "name": "IMAGE_DATENUM_1",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny4.png",
+                "name": "IMAGE_DATENUM_4",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny3.png",
+                "name": "IMAGE_DATENUM_3",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny0.png",
+                "name": "IMAGE_DATENUM_0",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny8.png",
+                "name": "IMAGE_DATENUM_8",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny2.png",
+                "name": "IMAGE_DATENUM_2",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny9.png",
+                "name": "IMAGE_DATENUM_9",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_B9.png",
+                "name": "IMAGE_NUMB_9",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_B8.png",
+                "name": "IMAGE_NUMB_8",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_B7.png",
+                "name": "IMAGE_NUMB_7",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_b6.png",
+                "name": "IMAGE_NUMB_6",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_B1.png",
+                "name": "IMAGE_NUMB_1",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_c4.png",
+                "name": "IMAGE_NUMC_4",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_C1.png",
+                "name": "IMAGE_NUMC_1",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_c0.png",
+                "name": "IMAGE_NUMC_0",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_b5.png",
+                "name": "IMAGE_NUMB_5",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_b4.png",
+                "name": "IMAGE_NUMB_4",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d0.png",
+                "name": "IMAGE_NUMD_0",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d9.png",
+                "name": "IMAGE_NUMD_9",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d8.png",
+                "name": "IMAGE_NUMD_8",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d5.png",
+                "name": "IMAGE_NUMD_5",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d4.png",
+                "name": "IMAGE_NUMD_4",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d3.png",
+                "name": "IMAGE_NUMD_3",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d6.png",
+                "name": "IMAGE_NUMD_6",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_b3.png",
+                "name": "IMAGE_NUMB_3",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d7.png",
+                "name": "IMAGE_NUMD_7",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d2.png",
+                "name": "IMAGE_NUMD_2",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_d1.png",
+                "name": "IMAGE_NUMD_1",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_c5.png",
+                "name": "IMAGE_NUMC_5",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_c3.png",
+                "name": "IMAGE_NUMC_3",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_c2.png",
+                "name": "IMAGE_NUMC_2",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_b2.png",
+                "name": "IMAGE_NUMB_2",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_b0.png",
+                "name": "IMAGE_NUMB_0",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_a2.png",
+                "name": "IMAGE_NUMA_2",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_a1.png",
+                "name": "IMAGE_NUMA_1",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/taller_curved_a0.png",
+                "name": "IMAGE_NUMA_0",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt20.png",
+                "name": "IMAGE_BATT_20",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt40.png",
+                "name": "IMAGE_BATT_40",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt60.png",
+                "name": "IMAGE_BATT_60",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt70.png",
+                "name": "IMAGE_BATT_70",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/separator.png",
+                "name": "IMAGE_SEPARATOR",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/download-taller copy.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/movie-rotated-6.png",
+                "name": "IMAGE_DATENUM_6",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/movie-rotated-7.png",
+                "name": "IMAGE_DATENUM_7",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/movie-rotated-5.png",
+                "name": "IMAGE_DATENUM_5",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/BT.png",
+                "name": "IMAGE_BLUETOOTHON",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt-chg.png",
+                "name": "IMAGE_BATT_CHARGING",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt80.png",
+                "name": "IMAGE_BATT_80",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt90.png",
+                "name": "IMAGE_BATT_90",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tallerbatt100.png",
+                "name": "IMAGE_BATT_100",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "fullscreen3",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "f3fdebb5-83d3-49c1-a980-31327e6a23e4",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
