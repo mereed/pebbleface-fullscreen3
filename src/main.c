@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015 Mark Reed
+Copyright (C) 2016 Mark Reed
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
 to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
@@ -19,7 +19,6 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 static Window *window;
 
 EffectLayer* effect_layer_inv;
-EffectLayer* effect_layer_invBT;
 EffectLayer* effect_layer_col_hr;
 EffectLayer* effect_layer_col_min;
 
@@ -77,9 +76,6 @@ static BitmapLayer *separator_layer;
 
 static GBitmap *bluetooth_image_on;
 static BitmapLayer *bluetooth_layer_on;
-
-static GBitmap *sep_mask_image;
-static BitmapLayer *sep_mask;
 
 static GBitmap *day_name_image;
 static BitmapLayer *day_name_layer;
@@ -258,7 +254,7 @@ void change_hour() {
 		#endif	
 		break;
 		
-		case 11: //GColorDarkGray 
+		case 11: //GColorDarkGrey 
 			colorpair_a.firstColor = GColorWhite;
 			colorpair_a.secondColor = GColorWhite;
 		#ifdef PBL_COLOR		
@@ -356,7 +352,7 @@ void change_min() {
 		#endif	
 		break;
 		
-		case 11: //GColorDarkGray   
+		case 11: //GColorDarkGrey   
 			colorpair_b.firstColor = GColorWhite;	
 			colorpair_b.secondColor = GColorWhite;
 		#ifdef PBL_COLOR		
@@ -387,91 +383,6 @@ void change_background(bool invert) {
   // No action required
 }
 
-static void handle_tick(struct tm *tick_time, TimeUnits units_changed);
-
-static void sync_tuple_changed_callback(const uint32_t key, const Tuple* new_tuple, const Tuple* old_tuple, void* context) {
-  switch (key) {
- //   case BLINK_KEY:
-//	  blink = new_tuple->value->uint8 !=0;
-//	  persist_write_bool(INVERT_KEY, blink);
-//      break;
-	  
-     case INVERT_KEY:
-      invert = new_tuple->value->uint8 != 0;
-	  persist_write_bool(INVERT_KEY, invert);
-      change_background(invert);
-      break;
-	  
-	case BLUETOOTHVIBE_KEY:
-      bluetoothvibe = new_tuple->value->uint8 != 0;
-	  persist_write_bool(BLUETOOTHVIBE_KEY, bluetoothvibe);
-      break;      
-	  
-    case HOURLYVIBE_KEY:
-      hourlyvibe = new_tuple->value->uint8 != 0;
-	  persist_write_bool(HOURLYVIBE_KEY, hourlyvibe);	  
-      break;	
-	  	  
-	case DATESEP_KEY:
-      datesep = new_tuple->value->uint8 != 0;
-	  persist_write_bool(DATESEP_KEY, datesep);	  
-	  
-	 if (datesep) {
-		layer_set_hidden(bitmap_layer_get_layer(separator_layer), false); 
-		
-		layer_set_hidden(bitmap_layer_get_layer(day_name_layer), true);
-		for (int i = 0; i < TOTAL_DATE_DIGITS; ++i) {
-		layer_set_hidden(bitmap_layer_get_layer(date_digits_layers[i]), true);
-		}
-				
-	} else {
-		layer_set_hidden(bitmap_layer_get_layer(separator_layer), true);
-
-		layer_set_hidden(bitmap_layer_get_layer(day_name_layer), false);
-		for (int i = 0; i < TOTAL_DATE_DIGITS; ++i) {
-		layer_set_hidden(bitmap_layer_get_layer(date_digits_layers[i]), false);
-		}
-	}
-      break;
-	  
-//	case DAYFLIP_KEY:
-//      dayflip = new_tuple->value->uint8 != 0;
-//	  persist_write_bool(DAYFLIP_KEY, dayflip);	  
-	  
-
-      break;
-
-    case HOUR_COL_KEY:
-		hour_col = new_tuple->value->uint8;
-		persist_write_bool(HOUR_COL_KEY, hour_col);
-	    change_hour();
-
-	break;
-	  
-    case MIN_COL_KEY:
-		min_col = new_tuple->value->uint8;
-		persist_write_bool(MIN_COL_KEY, min_col);
-		change_min();
-
-	break;
-	  
-//	case FONT_KEY:
-//		font = new_tuple->value->uint8 !=0;
-//		persist_write_bool(FONT_KEY, font);
-//	break;
-  }
-	
-  // Refresh display immediately when changes are made
-
-  // Get current time
-  time_t now = time( NULL );
-  struct tm *tick_time = localtime( &now );
-
-	
-  // Force update to Refresh display
-  handle_tick(tick_time, DAY_UNIT + HOUR_UNIT + MINUTE_UNIT );
-	
-}
 
 
 static void set_container_image(GBitmap **bmp_image, BitmapLayer *bmp_layer, const int resource_id, GPoint origin) {
@@ -557,7 +468,7 @@ if (units_changed & HOUR_UNIT) {
   }
 
 	
-// update month
+// update month and date
 	
 #ifdef PBL_PLATFORM_CHALK
   set_container_image(&day_name_image, day_name_layer, DAY_NAME_IMAGE_RESOURCE_IDS[tick_time->tm_mon], GPoint(86, 102));
@@ -569,7 +480,8 @@ if (units_changed & HOUR_UNIT) {
   set_container_image(&date_digits_images[1], date_digits_layers[1], DATENUM_IMAGE_RESOURCE_IDS[tick_time->tm_mday%10], GPoint(68, 62));	
 #endif
 
-  
+//update hours
+	
   unsigned short display_hour = get_display_hour(tick_time->tm_hour);
 	 
 #ifdef PBL_PLATFORM_CHALK
@@ -623,6 +535,8 @@ if (units_changed & HOUR_UNIT) {
 	}
 }
 	
+// update minutes
+	
 if (units_changed & MINUTE_UNIT) {
 
 #ifdef PBL_PLATFORM_CHALK
@@ -668,6 +582,88 @@ if (units_changed & MINUTE_UNIT) {
 }
 
 
+static void sync_tuple_changed_callback(const uint32_t key, const Tuple* new_tuple, const Tuple* old_tuple, void* context) {
+  switch (key) {
+ //   case BLINK_KEY:
+//	  blink = new_tuple->value->uint8 !=0;
+//	  persist_write_bool(INVERT_KEY, blink);
+//      break;
+	  
+     case INVERT_KEY:
+      invert = new_tuple->value->uint8 != 0;
+	  persist_write_bool(INVERT_KEY, invert);
+      change_background(invert);
+      break;
+	  
+	case BLUETOOTHVIBE_KEY:
+      bluetoothvibe = new_tuple->value->uint8 != 0;
+	  persist_write_bool(BLUETOOTHVIBE_KEY, bluetoothvibe);
+      break;      
+	  
+    case HOURLYVIBE_KEY:
+      hourlyvibe = new_tuple->value->uint8 != 0;
+	  persist_write_bool(HOURLYVIBE_KEY, hourlyvibe);	  
+      break;	
+	  	  
+	case DATESEP_KEY:
+      datesep = new_tuple->value->uint8 != 0;
+	  persist_write_bool(DATESEP_KEY, datesep);	  
+	  
+	 if (datesep) {
+		layer_set_hidden(bitmap_layer_get_layer(separator_layer), false); 
+		
+		layer_set_hidden(bitmap_layer_get_layer(day_name_layer), true);
+		for (int i = 0; i < TOTAL_DATE_DIGITS; ++i) {
+		layer_set_hidden(bitmap_layer_get_layer(date_digits_layers[i]), true);
+		}
+				
+	} else {
+		layer_set_hidden(bitmap_layer_get_layer(separator_layer), true);
+
+		layer_set_hidden(bitmap_layer_get_layer(day_name_layer), false);
+		for (int i = 0; i < TOTAL_DATE_DIGITS; ++i) {
+		layer_set_hidden(bitmap_layer_get_layer(date_digits_layers[i]), false);
+		}
+	}
+      break;
+	  
+//	case DAYFLIP_KEY:
+//      dayflip = new_tuple->value->uint8 != 0;
+//	  persist_write_bool(DAYFLIP_KEY, dayflip);	  
+     // break;
+
+    case HOUR_COL_KEY:
+		hour_col = new_tuple->value->uint8;
+		persist_write_bool(HOUR_COL_KEY, hour_col);
+	    change_hour();
+
+	break;
+	  
+    case MIN_COL_KEY:
+		min_col = new_tuple->value->uint8;
+		persist_write_bool(MIN_COL_KEY, min_col);
+		change_min();
+
+	break;
+	  
+//	case FONT_KEY:
+//		font = new_tuple->value->uint8 !=0;
+//		persist_write_bool(FONT_KEY, font);
+//	break;
+  }
+	
+  // Refresh display immediately when changes are made
+
+  // Get current time
+  time_t now = time( NULL );
+  struct tm *tick_time = localtime( &now );
+
+  // Force update to Refresh display
+  handle_tick(tick_time, DAY_UNIT + HOUR_UNIT + MINUTE_UNIT );
+	
+}
+
+
 static void init(void) {
   memset(&time_digitsa_layers, 0, sizeof(time_digitsa_layers));
   memset(&time_digitsa_images, 0, sizeof(time_digitsa_images)); 
@@ -699,13 +695,9 @@ static void init(void) {
   window_set_background_color(window, GColorBlack);
 		
   Layer *window_layer = window_get_root_layer(window);
-	
-	
-
-
 
 	
- img_battery_100   = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATT_100);
+  img_battery_100   = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATT_100);
   img_battery_90   = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATT_90);
   img_battery_80   = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATT_80);
   img_battery_70   = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BATT_70);
@@ -762,7 +754,6 @@ static void init(void) {
   }
 
 	
-
 	
   colorpair_a.firstColor = GColorWhite;
   colorpair_a.secondColor = GColorWhite;
@@ -830,7 +821,7 @@ static void init(void) {
   bluetooth_connection_service_subscribe(bluetooth_connection_callback);
   battery_state_service_subscribe(handle_battery);
 
-	  window_stack_push(window, true /* Animated */);
+  window_stack_push(window, true /* Animated */);
 
 }
 
@@ -867,12 +858,6 @@ static void deinit(void) {
   gbitmap_destroy(separator_image);
 
 
-
-	
-  layer_remove_from_parent(bitmap_layer_get_layer(sep_mask));
-  bitmap_layer_destroy(sep_mask);
-  gbitmap_destroy(sep_mask_image);
-	
   layer_remove_from_parent(bitmap_layer_get_layer(day_name_layer));
   bitmap_layer_destroy(day_name_layer);
   gbitmap_destroy(day_name_image);
