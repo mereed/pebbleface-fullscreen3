@@ -24,35 +24,33 @@ function saveLocalData(config) {
 
   //console.log("loadLocalData() " + JSON.stringify(config));
 
-  localStorage.setItem("blink", parseInt(config.blink));  
   localStorage.setItem("invert", parseInt(config.invert)); 
   localStorage.setItem("bluetoothvibe", parseInt(config.bluetoothvibe)); 
   localStorage.setItem("hourlyvibe", parseInt(config.hourlyvibe)); 
-  localStorage.setItem("dayflip", parseInt(config.dayflip)); 
   localStorage.setItem("datesep", parseInt(config.datesep)); 
-  localStorage.setItem("hour_col", parseInt(config.hour_col)); 
-  localStorage.setItem("min_col", parseInt(config.min_col)); 
-  localStorage.setItem("font", parseInt(config.font)); 
+  localStorage.setItem("hour_col1", parseInt(config.hour_col1)); 
+  localStorage.setItem("min_col1", parseInt(config.min_col1)); 
+  localStorage.setItem("hour_col2", parseInt(config.hour_col2)); 
+  localStorage.setItem("min_col2", parseInt(config.min_col2)); 
+  localStorage.setItem("health", parseInt(config.health)); 
   
   loadLocalData();
 
 }
 function loadLocalData() {
   
-	mConfig.blink = parseInt(localStorage.getItem("blink"));
 	mConfig.invert = parseInt(localStorage.getItem("invert"));
 	mConfig.bluetoothvibe = parseInt(localStorage.getItem("bluetoothvibe"));
 	mConfig.hourlyvibe = parseInt(localStorage.getItem("hourlyvibe"));
-	mConfig.dayflip = parseInt(localStorage.getItem("dayflip"));
 	mConfig.datesep = parseInt(localStorage.getItem("datesep"));
-	mConfig.hour_col = parseInt(localStorage.getItem("hour_col"));
-	mConfig.min_col = parseInt(localStorage.getItem("min_col"));
-	mConfig.font = parseInt(localStorage.getItem("font"));
+	mConfig.hour_col1 = parseInt(localStorage.getItem("hour_col1"));
+	mConfig.min_col1 = parseInt(localStorage.getItem("min_col1"));
+	mConfig.hour_col2 = parseInt(localStorage.getItem("hour_col2"));
+	mConfig.min_col2 = parseInt(localStorage.getItem("min_col2"));
+	mConfig.health = parseInt(localStorage.getItem("health"));
 	mConfig.configureUrl = "http://www.themapman.com/pebblewatch/fullscreen3.html";
 
-	if(isNaN(mConfig.blink)) {
-		mConfig.blink = 1;
-	}
+
 	if(isNaN(mConfig.invert)) {
 		mConfig.invert = 0;
 	}
@@ -62,34 +60,39 @@ function loadLocalData() {
 	if(isNaN(mConfig.hourlyvibe)) {
 		mConfig.hourlyvibe = 0;
 	} 
-	if(isNaN(mConfig.dayflip)) {
-		mConfig.dayflip = 0;
-	}
+
 	if(isNaN(mConfig.datesep)) {
 		mConfig.datesep = 0;
 	} 
-	if(isNaN(mConfig.hour_col)) {
-		mConfig.hour_col = 0;
+	if(isNaN(mConfig.hour_col1)) {
+		mConfig.hour_col1 = 0;
 	}
-	if(isNaN(mConfig.min_col)) {
-		mConfig.min_col = 0;
+	if(isNaN(mConfig.min_col1)) {
+		mConfig.min_col1 = 0;
 	}
-	if(isNaN(mConfig.font)) {
-		mConfig.font = 0;
+	if(isNaN(mConfig.hour_col2)) {
+		mConfig.hour_col2 = 0;
 	}
+	if(isNaN(mConfig.min_col2)) {
+		mConfig.min_col2 = 0;
+	}
+	if(isNaN(mConfig.health)) {
+		mConfig.health = 0;
+	}
+
   //console.log("loadLocalData() " + JSON.stringify(mConfig));
 }
 function returnConfigToPebble() {
   //console.log("Configuration window returned: " + JSON.stringify(mConfig));
   Pebble.sendAppMessage({
-    "blink":parseInt(mConfig.blink), 
     "invert":parseInt(mConfig.invert), 
     "bluetoothvibe":parseInt(mConfig.bluetoothvibe), 
     "hourlyvibe":parseInt(mConfig.hourlyvibe),
-    "dayflip":parseInt(mConfig.dayflip),
     "datesep":parseInt(mConfig.datesep),
-    "hour_col":parseInt(mConfig.hour_col),
-    "min_col":parseInt(mConfig.min_col),
-    "font":parseInt(mConfig.font)
+    "hour_col1":parseInt(mConfig.hour_col1),
+    "min_col1":parseInt(mConfig.min_col1),
+	"hour_col2":parseInt(mConfig.hour_col2),
+    "min_col2":parseInt(mConfig.min_col2),
+    "health":parseInt(mConfig.health),
   });    
 }

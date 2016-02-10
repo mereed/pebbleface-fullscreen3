@@ -1,59 +1,133 @@
 {
     "appKeys": {
-        "bluetoothvibe": 2,
-        "datesep": 5,
-        "hour_col": 6,
-        "hourlyvibe": 3,
-        "invert": 1,
-        "min_col": 7
+        "bluetoothvibe": 1,
+        "datesep": 3,
+        "health": 8,
+        "hour_col1": 4,
+        "hour_col2": 6,
+        "hourlyvibe": 2,
+        "invert": 0,
+        "min_col1": 5,
+        "min_col2": 7
     },
     "capabilities": [
-        "configurable"
+        "configurable",
+        "health"
     ],
     "companyName": "chops",
+    "enableMultiJS": false,
     "longName": "fullscreen3",
     "projectType": "native",
     "resources": {
         "media": [
             {
+                "characterRegex": "[0-9]",
+                "file": "fonts/blank-Regular.otf",
+                "name": "FONT_SQ_14",
+                "targetPlatforms": null,
+                "trackingAdjust": 2,
+                "type": "font"
+            },
+            {
+                "file": "images/footprint_icon.png",
+                "name": "IMAGE_FOOTPRINT",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/menu.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny7.png",
+                "name": "IMAGE_DATENUM_7",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny6.png",
+                "name": "IMAGE_DATENUM_6",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tiny5.png",
+                "name": "IMAGE_DATENUM_5",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/dec.png",
+                "name": "IMAGE_DEC",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/nov.png",
+                "name": "IMAGE_NOV",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/oct.png",
+                "name": "IMAGE_OCT",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/sep.png",
+                "name": "IMAGE_SEP",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/aug.png",
+                "name": "IMAGE_AUG",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
                 "file": "images/jul.png",
-                "name": "IMAGE_DAY_NAME_WED",
+                "name": "IMAGE_JUL",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
             {
                 "file": "images/jun.png",
-                "name": "IMAGE_DAY_NAME_TUE",
+                "name": "IMAGE_JUN",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
             {
                 "file": "images/jan.png",
-                "name": "IMAGE_DAY_NAME_THU",
+                "name": "IMAGE_JAN",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
             {
                 "file": "images/may.png",
-                "name": "IMAGE_DAY_NAME_MON",
+                "name": "IMAGE_MAY",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
             {
                 "file": "images/apr.png",
-                "name": "IMAGE_DAY_NAME_SUN",
+                "name": "IMAGE_APR",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
             {
                 "file": "images/mar.png",
-                "name": "IMAGE_DAY_NAME_SAT",
+                "name": "IMAGE_MAR",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
             {
                 "file": "images/feb.png",
-                "name": "IMAGE_DAY_NAME_FRI",
+                "name": "IMAGE_FEB",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
@@ -301,27 +375,6 @@
                 "file": "images/separator.png",
                 "name": "IMAGE_SEPARATOR",
                 "targetPlatforms": null,
-                "type": "bitmap"
-            },
-            {
-                "file": "images/download-taller copy.png",
-                "menuIcon": true,
-                "name": "IMAGE_MENU_ICON",
-                "type": "bitmap"
-            },
-            {
-                "file": "images/movie-rotated-6.png",
-                "name": "IMAGE_DATENUM_6",
-                "type": "bitmap"
-            },
-            {
-                "file": "images/movie-rotated-7.png",
-                "name": "IMAGE_DATENUM_7",
-                "type": "bitmap"
-            },
-            {
-                "file": "images/movie-rotated-5.png",
-                "name": "IMAGE_DATENUM_5",
                 "type": "bitmap"
             },
             {
